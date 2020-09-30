@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+use Illuminate\Support\Facades\DB;
 class SubjectTableSeeder extends Seeder
 {
     /**
@@ -13,6 +14,14 @@ class SubjectTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        if (DB::table('subjects')->count() === 0){
+            DB::table('subjects')->insert([
+               [
+                  'name' => 'Math',
+                  'is_active' => 0,
+                  'time' => 2020/10/1,
+               ] ,
+            ]);
+        }
     }
 }

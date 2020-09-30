@@ -23,7 +23,9 @@ class SubjectFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'is_active' => $this->faker->numberBetween(0,1),
+            'time' => $this->faker->dateTime,
         ];
     }
 }

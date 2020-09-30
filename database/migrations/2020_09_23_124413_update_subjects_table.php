@@ -14,7 +14,7 @@ class UpdateSubjectsTable extends Migration
     public function up()
     {
         Schema::table('subjects', function (Blueprint $table) {
-            //
+            $table->dateTime('time');
         });
     }
 

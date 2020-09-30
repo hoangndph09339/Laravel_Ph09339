@@ -13,8 +13,14 @@ class CreateStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('student', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->boolean('is_active')->default(0);
+            $table->string('phone');
+            $table->integer('age');
+            $table->string('address')-> nullable();//nullable trường được phép bỏ trống
+            $table->boolean('gender');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class CreateStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student');
+        Schema::dropIfExists('students');
     }
 }

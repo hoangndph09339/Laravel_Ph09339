@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginMiddleware
 {
@@ -16,6 +17,11 @@ class LoginMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if (Auth::user()->password == $request->password)
+        //dd($request->only('username', 'password'));
+        //if (Auth::attempt($request->only('username', 'password')))
+        {
+            return $next($request);
+        }else{return redirect()->route('/');}
     }
 }
