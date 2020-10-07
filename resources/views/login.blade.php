@@ -30,5 +30,4 @@
         </tr>
     </table>
 </form>
-</body>
-</html>
+@endsection

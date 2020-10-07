@@ -396,10 +396,13 @@
 <body class="antialiased">
 <div>
     <h1>Hello World</h1>
+    <h2><a href="{{Route('adminlte')}}">Admin</a></h2>
     <h2><a href="{{Route('backend.user.create')}}">User Register</a></h2>
     <h2><a href="{{Route('login')}}">Login</a></h2>
     <h2><a href="{{Route('students')}}">Students</a></h2>
     <h2><a href="{{Route('subjects')}}">Subjects</a></h2>
+    <h2><a href="{{Route('backend.students')}}">Show Student Controller</a></h2>
+    <h2><a href="{{Route('backend.students.show', ['id' => 1])}}">Student Management</a></h2>
 </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <ul class="navbar-nar mr-auto"><a href="/">

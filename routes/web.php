@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 Use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,9 @@ Route::prefix('backend')->namespace('App\Http\Controllers\Backend')->group(funct
 
     Route::get('user/create', 'UserController@create')->name('backend.user.create');
     Route::post('user/store', 'UserController@store')->name('backend.user.store');
+
+    Route::get('studentIndex', 'StudentController@index')->name('backend.students');
+    Route::get('studentShow/{id}', 'StudentController@show')->name('backend.students.show');
 });
 
 Route::get('user/{id}', function ($id) {
@@ -112,4 +117,10 @@ Route::group(['prefix' => 'backend'], function () {
         return view('user');
     })->name('userDetail')->middleware('loginMiddle');
 
+    Route::get('admin', function (){
+        return view('admin');
+    })->name('adminlte');
 
+//    Route::resource('students', StudentController::class);
+
+//    Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.index');
