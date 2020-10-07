@@ -15,7 +15,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        return "List Subject"."<br/>"."<a href='/'>Home</a>";
     }
 
     /**

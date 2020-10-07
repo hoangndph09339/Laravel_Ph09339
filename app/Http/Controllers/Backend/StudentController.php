@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -15,7 +16,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = Student::all();
+        return view('studentList', ['studentList' => $students]);
     }
 
     /**
@@ -45,9 +47,12 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show($student)
     {
-        //
+        $studentObjEloquentModel = Student::find($student);
+        $studentObjQueryBuilder = DB::table('students')->find($student);
+        $studentObj = $student;
+        return view('student-layouts\showStudent', ['student' => $studentObjQueryBuilder]);
     }
 
     /**
